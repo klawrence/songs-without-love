@@ -74,6 +74,7 @@ GEM
     minitest (5.3.3)
     multi_json (1.10.0)
     multi_xml (0.5.5)
+    mysql2 (0.3.11)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
     net-ssh (2.9.0)
@@ -145,6 +146,7 @@ DEPENDENCIES
   httparty
   jbuilder (~> 2.0)
   jquery-rails
+  mysql2
   rails (= 4.1.1)
   sass-rails (~> 4.0.3)
   spring
