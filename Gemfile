@@ -1,17 +1,21 @@
 source 'https://rubygems.org'
 
 
-gem 'rails', '4.1.1'
+gem 'rails'
 gem 'mysql2'
+gem 'haml-rails'
 gem 'sass-rails', '~> 4.0.3'
-gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
 
+gem 'bootstrap-sass'
 gem 'jquery-rails'
-gem 'turbolinks'
+
 gem 'jbuilder', '~> 2.0'
+gem 'uglifier', '>= 1.3.0'
+
+gem 'turbolinks'
 gem 'httparty' # http client
 
 # Use debugger
