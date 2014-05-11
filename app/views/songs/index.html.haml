@@ -1,6 +1,6 @@
 %h1 Listing songs
 
-%table
+%table.table
   %tr
     %th Artist
     %th Title
@@ -18,7 +18,7 @@
       %td= song.artist
       %td= song.title
       %td= song.cached_slug
-      %td= song.lyrics
+      %td= not song.lyrics.blank?
       %td= song.peak_chart_position
       %td= song.weeks_on_chart
       %td= song.first_charted_on

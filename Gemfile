@@ -19,15 +19,17 @@ gem 'httparty' # http client
 
 gem 'friendly_id'
 gem 'simple_form'
-
-# Use debugger
-# gem 'debugger', group: [:development, :test]
+gem 'mechanize'
 
 group :development do
   gem 'spring'
   gem 'capistrano-rails'
   gem 'better_errors'
   gem 'binding_of_caller'
+end
+
+group :test do
+  gem 'minitest'
 end
 
 group :assets do

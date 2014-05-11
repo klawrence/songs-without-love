@@ -16,7 +16,6 @@ ActiveRecord::Schema.define(version: 20140511050411) do
   create_table "artists", force: true do |t|
     t.string   "name"
     t.string   "slug"
-    t.string   "uniq"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
