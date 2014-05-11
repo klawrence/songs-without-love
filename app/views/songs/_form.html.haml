@@ -1,0 +1,16 @@
+= simple_form_for @song, html: { class: 'form-horizontal' } do |f|
+  - if @song.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@song.errors.count, "error")} prohibited this song from being saved:"
+      %ul
+        - @song.errors.full_messages.each do |msg|
+          %li= msg
+
+  = f.input :artist, collection: Artist.all, prompt: true
+  = f.input :title
+  = f.input :lyrics
+  = f.input :peak_chart_position
+  = f.input :weeks_on_chart
+  = f.input :first_charted_on
+  .actions
+    = f.submit :save_button_label.l

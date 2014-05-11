@@ -18,6 +18,7 @@ gem 'turbolinks'
 gem 'httparty' # http client
 
 gem 'friendly_id'
+gem 'simple_form'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]

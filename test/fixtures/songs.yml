@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  artist: 1
+  title: MyString
+  cached_slug: MyString
+  lyrics: MyText
+  peak_chart_position: 1
+  weeks_on_chart: MyString
+  first_charted_on: 2014-05-10
+
+two:
+  artist: 1
+  title: MyString
+  cached_slug: MyString
+  lyrics: MyText
+  peak_chart_position: 1
+  weeks_on_chart: MyString
+  first_charted_on: 2014-05-10

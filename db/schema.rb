@@ -11,24 +11,47 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140511031554) do
+ActiveRecord::Schema.define(version: 20140511050411) do
 
   create_table "artists", force: true do |t|
     t.string   "name"
-    t.string   "cached_slug"
+    t.string   "slug"
     t.string   "uniq"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+  add_index "artists", ["name"], name: "index_artists_on_name", using: :btree
+  add_index "artists", ["slug"], name: "index_artists_on_slug", unique: true, using: :btree
+
+  create_table "friendly_id_slugs", force: true do |t|
+    t.string   "slug",                      null: false
+    t.integer  "sluggable_id",              null: false
+    t.string   "sluggable_type", limit: 50
+    t.string   "scope"
+    t.datetime "created_at"
+  end
+
+  add_index "friendly_id_slugs", ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true, using: :btree
+  add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type", using: :btree
+  add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
+  add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
+
   create_table "songs", force: true do |t|
+    t.integer  "artist_id"
     t.string   "title"
+    t.string   "slug"
     t.text     "lyrics"
     t.integer  "peak_chart_position"
-    t.integer  "weeks_on_chart"
+    t.string   "weeks_on_chart"
     t.date     "first_charted_on"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "songs", ["artist_id"], name: "index_songs_on_artist_id", using: :btree
+  add_index "songs", ["first_charted_on"], name: "index_songs_on_first_charted_on", using: :btree
+  add_index "songs", ["slug"], name: "index_songs_on_slug", unique: true, using: :btree
+  add_index "songs", ["title"], name: "index_songs_on_title", using: :btree
 
 end

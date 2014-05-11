@@ -1,3 +1,5 @@
 en:
   app_name: Songs Without Love
   app_description: What are songs about, if not love?
+
+  save_button_label: Save
