@@ -1,10 +1,9 @@
-- flash[:notice] = "This is a test"
 !!!
 %html
   %head
     %meta{:name => "viewport", :content => 'width=device-width, initial-scale=1, maximum-scale=1'}
     %title= content_for?(:title) ? yield(:title) : 'Songs without Love'
-    %meta{:content => content_for?(:description) ? yield(:description) : 'Songs without Love', :name => 'app description'}
+    %meta{:content => content_for?(:description) ? yield(:description) : :app_name.l, name: :app_description.l}
     = stylesheet_link_tag :application, media: 'all'
     = javascript_include_tag :application
     = csrf_meta_tags
@@ -13,7 +12,7 @@
     %header.navbar.navbar-fixed-top.navbar-inverse
       %nav.navbar-inner
         .container
-      %a.brand{:href => "/"} Our First HTML5 haml example
+      %a.brand{:href => "/"}= :app_name.l
     #main{role: 'main'}
       .container
         .content
