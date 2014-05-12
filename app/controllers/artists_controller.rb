@@ -1,4 +1,5 @@
 class ArtistsController < ApplicationController
+  before_action :require_login, except: [:index, :show]
   before_action :set_artist, only: [:show, :edit, :update, :destroy]
 
   def index

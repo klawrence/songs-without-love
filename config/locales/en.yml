@@ -2,4 +2,6 @@ en:
   app_name: Songs Without Love
   app_description: What are songs about, if not love?
 
+  not_allowed_to_do_that: You are not allowed to do that.
+
   save_button_label: Save
