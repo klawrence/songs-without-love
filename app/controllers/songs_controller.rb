@@ -4,7 +4,7 @@ class SongsController < ApplicationController
   # GET /songs
   # GET /songs.json
   def index
-    @songs = Song.all
+    @songs = Song.order(:first_charted_on).page params[:page]
   end
 
   # GET /songs/1

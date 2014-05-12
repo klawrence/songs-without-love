@@ -6,6 +6,7 @@ class SongCrawler
   end
 
   def crawl index_page
+    # artist_pages = crawl_indexes
     crawl_artist_page index_page
   end
 

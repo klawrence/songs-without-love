@@ -1,5 +1,7 @@
 %h1 Listing songs
 
-= render partial: 'songs/list', locals: {songs: @songs}
-
 = link_to 'New Song', new_song_path
+
+= render partial: 'songs/list', locals: {songs: @songs}
+= paginate @songs
+

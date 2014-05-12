@@ -10,6 +10,7 @@
     %th.number Peak chart position
     %th.number Weeks on chart
     %th.check Lyrics?
+    %th.check Reissue?
     %th
     %th
 
@@ -22,5 +23,6 @@
       %td.number= song.peak_chart_position
       %td.number= song.weeks_on_chart
       %td.check= song.lyrics.blank? ? '' : '✓'
+      %td.check= song.reissue? ? '✓' : ''
       %td= link_to 'Edit', edit_song_path(song)
       %td= link_to 'Destroy', song, :method => :delete, :data => { :confirm => 'Are you sure?' }
