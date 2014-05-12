@@ -7,8 +7,8 @@ default: &default
 development:
   <<: *default
   database: songs_without_love_dev
-  username: dev
-  password: singer_dev
+  username: singer_dev
+  password: singer_dev_password
   host: localhost
   pool: 5
   timeout: 5000
@@ -19,8 +19,8 @@ development:
 test:
   <<: *default
   database: songs_without_love_test
-  username: test
-  password: singer_test
+  username: singer_test
+  password: singer_test_password
 
 production:
   <<: *default
