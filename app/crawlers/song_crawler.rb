@@ -1,19 +1,43 @@
 class SongCrawler
-  attr_reader :agent
 
-  def initialize
+  def initialize site
     @agent = Mechanize.new
+    @site = site
   end
 
-  def crawl index_page
-    # artist_pages = crawl_indexes
-    crawl_artist_page index_page
+  def crawl artists_index
+    log "Crawling #{@site}#{artists_index}"
+
+    artist_pages = crawl_index_pages artists_index
+    artist_pages.each do |url|
+      crawl_artist_page url
+    end
+  end
+
+  def crawl_index_pages index_page
+    page = @agent.get index_page, [], @site
+    links = page.links.map(&:href).select {|href| /b\/artists\/[0-9a-z]/ =~ href}
+    log "Found #{links.count} index pages"
+
+    fetch_artist_pages links
+  end
+
+  def fetch_artist_pages links
+    artist_pages = []
+
+    links.each do |link|
+      page = @agent.get link, [], @site
+      artist_pages += page.links.map(&:href).select { |href| /\/a\// =~ href }
+    end
+
+    log "Found #{artist_pages.count} artists"
+    artist_pages
   end
 
   def crawl_artist_page artist_url
     log artist_url
 
-    page = agent.get artist_url
+    page = @agent.get artist_url, [], @site
     artist = create_artist page
     songs = create_songs artist, page
 
