@@ -6,7 +6,7 @@
         - @song.errors.full_messages.each do |msg|
           %li= msg
 
-  = f.input :artist, collection: Artist.all, prompt: true
+  = f.input :artist_id, collection: Artist.all, prompt: true
   = f.input :title
   = f.input :lyrics
   = f.input :peak_chart_position

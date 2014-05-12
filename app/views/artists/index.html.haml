@@ -3,14 +3,14 @@
 %table.table
   %tr
     %th Name
-    %th
+    %th Songs
     %th
     %th
 
   - @artists.each do |artist|
     %tr
-      %td= artist.name
-      %td= link_to 'Show', artist
+      %td= link_to artist.name, artist
+      %td= artist.songs.count
       %td= link_to 'Edit', edit_artist_path(artist)
       %td= link_to 'Destroy', artist, :method => :delete, :data => { :confirm => 'Are you sure?' }
 

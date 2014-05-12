@@ -1,9 +1,12 @@
 %p#notice= notice
 
-%p
-  %b Name:
-  = @artist.name
+%h2= @artist.name
+
+= render partial: 'songs/list', locals: {songs: @artist.songs, hide_artist:true}
 
 = link_to 'Edit', edit_artist_path(@artist)
 \|
 = link_to 'Back', artists_path
+
+
+

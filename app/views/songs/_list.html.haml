@@ -1,0 +1,26 @@
+- songs = [] unless defined? songs
+- hide_artist = true unless defined? hide_artist
+
+%table.table
+  %tr
+    - unless hide_artist
+      %th Artist
+    %th Title
+    %th First charted on
+    %th.number Peak chart position
+    %th.number Weeks on chart
+    %th.check Lyrics?
+    %th
+    %th
+
+  - songs.each do |song|
+    %tr
+      - unless hide_artist
+        %td= link_to song.artist, song.artist
+      %td= link_to song.title, song
+      %td= song.first_charted_on
+      %td.number= song.peak_chart_position
+      %td.number= song.weeks_on_chart
+      %td.check= song.lyrics.blank? ? '' : '✓'
+      %td= link_to 'Edit', edit_song_path(song)
+      %td= link_to 'Destroy', song, :method => :delete, :data => { :confirm => 'Are you sure?' }

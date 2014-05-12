@@ -2,13 +2,10 @@
 
 %p
   %b Artist:
-  = @song.artist
+  = link_to @song.artist, @song.artist
 %p
   %b Title:
   = @song.title
-%p
-  %b Cached slug:
-  = @song.cached_slug
 %p
   %b Lyrics:
   = @song.lyrics

@@ -1,31 +1,5 @@
 %h1 Listing songs
 
-%table.table
-  %tr
-    %th Artist
-    %th Title
-    %th Cached slug
-    %th Lyrics
-    %th Peak chart position
-    %th Weeks on chart
-    %th First charted on
-    %th
-    %th
-    %th
-
-  - @songs.each do |song|
-    %tr
-      %td= song.artist
-      %td= song.title
-      %td= song.cached_slug
-      %td= not song.lyrics.blank?
-      %td= song.peak_chart_position
-      %td= song.weeks_on_chart
-      %td= song.first_charted_on
-      %td= link_to 'Show', song
-      %td= link_to 'Edit', edit_song_path(song)
-      %td= link_to 'Destroy', song, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-%br
+= render partial: 'songs/list', locals: {songs: @songs}
 
 = link_to 'New Song', new_song_path

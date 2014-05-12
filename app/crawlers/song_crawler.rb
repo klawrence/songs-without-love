@@ -29,12 +29,14 @@ class SongCrawler
         songs << song = artist.songs.build
         song.title = cells[1].text
         song.first_charted_on = date_from cells[2].text
-        song.peak_chart_position = cells[1].text.to_i
-        song.weeks_on_chart = cells[1].text.to_i
+        song.peak_chart_position = cells[3].text.to_i
+        song.weeks_on_chart = cells[5].text.to_i
         song.save
         # TODO errors?
       end
     end
+
+    # TODO reject re-issues? Or maybe just flag them?
 
     songs
   end
