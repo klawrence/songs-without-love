@@ -25,5 +25,6 @@ test:
 production:
   <<: *default
   database: songs_without_love
-  username: singer
+  username: no_loving
   password: <%= IO.read('config/database_password') %>
+  host: db.songswithoutlove.com
