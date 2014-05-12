@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 20140511050411) do
     t.integer  "peak_chart_position"
     t.string   "weeks_on_chart"
     t.date     "first_charted_on"
+    t.boolean  "reissue"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

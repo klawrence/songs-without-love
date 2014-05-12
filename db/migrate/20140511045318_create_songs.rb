@@ -8,6 +8,7 @@ class CreateSongs < ActiveRecord::Migration
       t.integer :peak_chart_position
       t.string :weeks_on_chart
       t.date :first_charted_on
+      t.boolean :reissue
 
       t.timestamps
     end
@@ -16,6 +17,5 @@ class CreateSongs < ActiveRecord::Migration
     add_index :songs, :artist_id
     add_index :songs, :first_charted_on
     add_index :songs, :slug, unique: true
-
   end
 end
